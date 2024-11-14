@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {%if q == 0%}
+        <p>Sorry, we do not have any data about <strong>{{search}}</strong></p>
+    {%endif%}
+    {%if q == 1%}
+        <h1>Your might be searching for..</h1>
+        <ul>
+            {% for entry in entries %}
+                <li><a href="{% url 'title' name=entry %}">{{ entry }}</a></li>
+            {% endfor %}
+        </ul>
+    {%endif%}
+{% endblock %}

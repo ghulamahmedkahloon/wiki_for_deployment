@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add new page
+{% endblock %}
+
+{% block body %}
+{%if a == 0%}
+    <form action="{% url 'new_page'%}" method="post">
+        {% csrf_token %}
+        <div>
+       
+            {{form | safe}}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{%endif%}
+{%if a == 1%}
+    <h3>Sorry entry with the name {{entry}} already exists.</h3>
+{%endif%}
+    
+
+{% endblock %}
